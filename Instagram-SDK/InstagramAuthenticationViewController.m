@@ -77,8 +77,9 @@
                     }];
                 }
                 
-                
-            NSLog(@"IG auth message:%@",dialogMessage);
+                #ifdef DEBUG
+                    NSLog(@"IG auth message:%@",dialogMessage);
+                #endif
             }
         }];
         
@@ -88,24 +89,28 @@
         return FALSE;
     }
     
-    NSLog(@"Should load URL:%@",request.URL.description);
-    NSLog(@"Base URL:%@",request.URL.baseURL);
-    NSLog(@"Scheme URL:%@",request.URL.scheme);
-    NSLog(@"Lastpath URL:%@",request.URL.lastPathComponent);
-    NSLog(@"Fragment URL:%@",request.URL.fragment);
-    
+    #ifdef DEBUG
+        NSLog(@"Should load URL:%@",request.URL.description);
+        NSLog(@"Base URL:%@",request.URL.baseURL);
+        NSLog(@"Scheme URL:%@",request.URL.scheme);
+        NSLog(@"Lastpath URL:%@",request.URL.lastPathComponent);
+        NSLog(@"Fragment URL:%@",request.URL.fragment);
+    #endif
     
     
     return TRUE;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSLog(@"Waiting for Authentication from user:");
-   
+     #ifdef DEBUG
+        NSLog(@"Waiting for Authentication from user:");
+    #endif
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
-    NSLog(@"Request Authentication:");
+    #ifdef DEBUG
+        NSLog(@"Request Authentication:");
+    #endif
 }
 
 -(BOOL)prefersStatusBarHidden{

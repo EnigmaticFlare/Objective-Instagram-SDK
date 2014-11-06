@@ -50,6 +50,10 @@ typedef void (^InstagramAuthenticationCompletionBlock)(BOOL didAuthenticate, NSS
 
 - (void)processReturnedAuthenticationURL:(NSURL *)url completion:(InstagramAuthenticationCompletionBlock)authenticationHandler;
 
+-(void)authenticateUsingClientId:(NSString*)clientId requestCommentsEndpointPermission:(BOOL)requestCommentsPermission
+requestRelationshipsEndpointPermission:(BOOL)requestRelationshipsPermission
+  RequestLikesEndpointPermission:(BOOL)requestLikesPermission;
+
 #pragma mark /media
 
 -(void)popularMedia:(InstagramRequestCompletionBlock)requestCompletedHandler failure:(InstagramRequestFailureBlock)requestFailureHander;
@@ -61,7 +65,6 @@ typedef void (^InstagramAuthenticationCompletionBlock)(BOOL didAuthenticate, NSS
 -(void)mediaSearchByLocation:(CLLocationCoordinate2D)location  completion:(InstagramRequestCompletionBlock)requestCompletedHandler failure:(InstagramRequestFailureBlock)requestFailureHander;
 
 #pragma mark /tags
-
 
 -(void)tagInfo:(NSString*)tag completion:(InstagramRequestCompletionBlock)requestCompletedHandler failure:(InstagramRequestFailureBlock)requestFailureHander;
 

@@ -52,7 +52,6 @@ static NSString *kHTTPMethodDelete = @"DEL";
     
     dispatch_once(&pred, ^{
         sharedManager = [[InstagramManager alloc] init];
-        [sharedManager authenticate];
     });
     return sharedManager;
 }
@@ -64,12 +63,14 @@ static NSString* kLogin                 = @"oauth/authorize";
 
 #pragma mark authentication
 
--(void)authenticate{
+-(void)authenticateUsingClientId:(NSString*)clientId requestCommentsEndpointPermission:(BOOL)requestCommentsPermission
+requestRelationshipsEndpointPermission:(BOOL)requestRelationshipsPermission
+  RequestLikesEndpointPermission:(BOOL)requestLikesPermission{
     
     if (self.oauthToken.length == 0){
         self.appDelegate = [[UIApplication sharedApplication] delegate];
         
-        self.instagramAuthURL = [self requestAuthenticateURLForUsingClientId:nil requestCommentsEndpointPermission:TRUE requestRelationshipsEndpointPermission:TRUE RequestLikesEndpointPermission:TRUE];
+        self.instagramAuthURL = [self requestAuthenticateURLForUsingClientId:clientId requestCommentsEndpointPermission:requestCommentsPermission requestRelationshipsEndpointPermission:requestRelationshipsPermission RequestLikesEndpointPermission:requestLikesPermission];
         
         self.authRequest = [NSURLRequest requestWithURL:self.instagramAuthURL];
         
