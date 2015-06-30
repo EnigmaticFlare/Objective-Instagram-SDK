@@ -4,7 +4,9 @@
 //
 //  Created by Adam Roberts on 05/01/2014.
 //  Copyright (c) 2014 Enigmatic Flare Ltd. All rights reserved.
-//
+//  MIT License - http://enigmaticflare.mit-license.org
+
+
 #import "InstagramAuthenticationViewController.h"
 #import "AFNetworking.h"
 @import Foundation;
