@@ -4,7 +4,7 @@
 //
 //  Created by Adam Roberts on 14/10/2014.
 //  Copyright (c) 2014 Enigmatic Flare Ltd. All rights reserved.
-//
+//  MIT License - http://enigmaticflare.mit-license.org
 
 #import <UIKit/UIKit.h>
 #import <Instagram_SDK/InstagramAuthenticationViewController.h>
